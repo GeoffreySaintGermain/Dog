@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <variable name="item" type="com.dream.architecturecomponents.data.model.Movie" android:layout_width="wrap_content"
+              android:layout_height="wrap_content" id="@+id/variable"/>
+    <variable name="listener" type="com.dream.architecturecomponents.utils.OnItemClickListener"
+              android:layout_width="wrap_content" android:layout_height="wrap_content" id="@+id/variable2"/>
+    <ImageView
+            android:id="@+id/cover3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cover="@{item.coverUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            style="@style/Title"
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Avengers"
+            android:layout_marginTop="@dimen/item_margin"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/overview"/>
+    <TextView
+            style="@style/SubTitle"
+            android:id="@+id/overview3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Un film de super-héros."
+            android:text="@{item.overview}"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
+            android:layout_marginBottom="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <variable name="viewModel" type="com.dream.architecturecomponents.ui.movies.create.CreateMovieViewModel"
+              android:layout_width="wrap_content" android:layout_height="wrap_content" id="@+id/variable"/>
+    <import type="com.dream.architecturecomponents.utils.Utils" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" id="@+id/import1"/>
+    <androidx.appcompat.widget.Toolbar
+            style="@style/Toolbar"
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/create_movie"/>
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleEditText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@={viewModel.title}"
+            tools:text="Avengers"/>
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/overviewEditText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.overview}"
+            tools:text="@string/avengers_overview"/>
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/releaseDateEditText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:text="@{Utils.dateToStringCapitalize(viewModel.releaseDate)}"
+            tools:text="12/04/2012"/>
+    <Switch
+            style="@style/Switch"
+            android:id="@+id/isForAdultsOnlySwitch2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_margin"
+            android:layout_marginBottom="@dimen/item_margin"
+            android:text="@string/isForAdultsOnly"
+            android:checked="@={viewModel.isForAdultsOnly}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/releaseDateLayout"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+</LinearLayout>
